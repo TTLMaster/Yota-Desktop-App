@@ -27,6 +27,7 @@ Yota::~Yota()
 void Yota::update()
 {
     networkManager->get(QNetworkRequest(QUrl("https://wa.yota.ru/webapi-v3/view/voice/home")));
+    ui->updating->setText("Обновляю...");
 }
 
 void Yota::onResult(QNetworkReply *reply)
@@ -41,11 +42,11 @@ void Yota::onResult(QNetworkReply *reply)
         QJsonObject price = root.value("price").toObject();
         int priceval = price.value("value").toInt();
         QString pricedesc = price.value("units").toString()+" "+price.value("descriptionText").toString();
-        qDebug()<<priceval;
         ui->balance->setText(QString::number(balance)+"₽");
         ui->internetstatus->setText(internet.replace("\n", " "));
         ui->next->setText(next);
         ui->price->setText(QString::number(priceval)+pricedesc);
+        ui->updating->setText("Обновлено "+QDateTime::currentDateTime().toString("d MMM yyyy в hh:mm:ss"));
         reply->deleteLater();
     }
 }

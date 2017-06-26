@@ -44,7 +44,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Интернет подключен</string>
+     <string>Загрузка...</string>
     </property>
    </widget>
    <widget class="QLabel" name="next">
@@ -57,7 +57,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Следующее списание 9 июля</string>
+     <string>Загрузка...</string>
     </property>
    </widget>
    <widget class="QLabel" name="price">
@@ -70,7 +70,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Стоимость тарфиа 30₽</string>
+     <string>Загрузка...</string>
     </property>
    </widget>
    <widget class="QPushButton" name="update">
@@ -116,7 +116,20 @@
      </font>
     </property>
     <property name="text">
-     <string>1488₽</string>
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="updating">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>190</y>
+      <width>331</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Обновляю...</string>
     </property>
    </widget>
   </widget>
