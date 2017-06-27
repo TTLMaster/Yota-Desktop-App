@@ -2,7 +2,7 @@
 #define YOTA_H
 
 #include <QMainWindow>
-#include <QNetworkAccessManager>
+#include "yotawa.h"
 
 namespace Ui {
 class Yota;
@@ -17,7 +17,7 @@ public:
     ~Yota();
 
 private slots:
-    void onResult(QNetworkReply *reply);
+    void onResult(double balance, QString internet, QString next, int price, QString pricedesc);
 
     void on_yotabypass_clicked();
 
@@ -25,7 +25,7 @@ private slots:
 
 private:
     Ui::Yota *ui;
-    QNetworkAccessManager *networkManager;
+    YotaWA *webapi;
     void update();
 };
 

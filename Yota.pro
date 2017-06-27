@@ -24,8 +24,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        yota.cpp
+        yota.cpp \
+    yotawa.cpp
 
-HEADERS  += yota.h
+HEADERS  += yota.h \
+    yotawa.h
 
 FORMS    += yota.ui
