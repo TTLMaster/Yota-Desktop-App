@@ -34,7 +34,7 @@ void YotaWA::onResult(QNetworkReply *reply)
         QJsonObject price = root.value("price").toObject();
         int priceval = price.value("value").toInt();
         QString pricedesc = price.value("units").toString()+" "+price.value("descriptionText").toString();
-        qDebug() << "getAllCookies: " << cookieJar->getAllCookies()[0].value();
+        //qDebug() << "getAllCookies: " << cookieJar->getAllCookies()[0].value();
         cookieJar->save();
         emit getHomeFinished(balance, internet, next, priceval, pricedesc);
         reply->deleteLater();
