@@ -5,11 +5,15 @@
 #include <QUrlQuery>
 #include <QNetworkReply>
 
+
 YotaWA::YotaWA()
 
 {
     networkManager = new QNetworkAccessManager();
-        connect(networkManager, &QNetworkAccessManager::finished, this, &YotaWA::onResult);
+    cookieJar = new YotaCookieJar();
+    cookieJar->load();
+    networkManager->setCookieJar(cookieJar);
+    connect(networkManager, &QNetworkAccessManager::finished, this, &YotaWA::onResult);
 }
 
 void YotaWA::getHome()
@@ -22,7 +26,7 @@ void YotaWA::onResult(QNetworkReply *reply)
 {
     if(!reply->error())
     {
-       QJsonDocument document = QJsonDocument::fromJson(reply->readAll());
+        QJsonDocument document = QJsonDocument::fromJson(reply->readAll());
         QJsonObject root = document.object();
         double balance = root.value("userBalance").toObject().value("value").toDouble();
         QString internet = root.value("optionStates").toArray()[0].toObject().value("descriptionText").toString();
@@ -30,6 +34,8 @@ void YotaWA::onResult(QNetworkReply *reply)
         QJsonObject price = root.value("price").toObject();
         int priceval = price.value("value").toInt();
         QString pricedesc = price.value("units").toString()+" "+price.value("descriptionText").toString();
+        qDebug() << "getAllCookies: " << cookieJar->getAllCookies()[0].value();
+        cookieJar->save();
         emit getHomeFinished(balance, internet, next, priceval, pricedesc);
         reply->deleteLater();
     }

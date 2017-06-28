@@ -3,6 +3,10 @@
 
 #include <QNetworkAccessManager>
 #include <QObject>
+#include <QtNetwork>
+#include "yotacookiejar.h"
+
+
 
 class YotaWA : public QObject
 {
@@ -17,6 +21,7 @@ signals:
 
 private:
     QNetworkAccessManager *networkManager;
+    YotaCookieJar *cookieJar;
 
 private slots:
     void onResult(QNetworkReply *reply);
