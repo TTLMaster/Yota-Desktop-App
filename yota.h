@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "yotawa.h"
+#include "settings.h"
 
 namespace Ui {
 class Yota;
@@ -22,6 +23,10 @@ private slots:
     void on_yotabypass_clicked();
 
     void on_update_clicked();
+
+    void on_toolButton_clicked();
+
+    void onError(int code, QString message="Описание ошибки отсутствует.");
 
 private:
     Ui::Yota *ui;

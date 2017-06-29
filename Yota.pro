@@ -11,6 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Yota
 TEMPLATE = app
 
+VERSION = 1.0.0
+DEFINES += VERSION_STRING=\\\"1.0.0\\\"
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -26,10 +29,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         yota.cpp \
     yotawa.cpp \
-    yotacookiejar.cpp
+    yotacookiejar.cpp \
+    settings.cpp \
+    settingscontroller.cpp
 
 HEADERS  += yota.h \
     yotawa.h \
-    yotacookiejar.h
+    yotacookiejar.h \
+    settings.h \
+    settingscontroller.h
 
-FORMS    += yota.ui
+FORMS    += yota.ui \
+    settings.ui

@@ -1,5 +1,10 @@
 #include "yotacookiejar.h"
 
+YotaCookieJar::YotaCookieJar()
+{
+    settings = new SettingsController();
+}
+
 QList<QNetworkCookie> YotaCookieJar::getAllCookies()
 {
     return allCookies();
@@ -7,18 +12,12 @@ QList<QNetworkCookie> YotaCookieJar::getAllCookies()
 
 void YotaCookieJar::load()
 {
-    QSettings settings;
-    settings.beginGroup(QLatin1String("cookies"));
-    QList<QNetworkCookie> savedCookies = QNetworkCookie::parseCookies(settings.value("cookies").toByteArray());
-
-    for (int j = 0; j < savedCookies.count(); j++)
-        insertCookie(savedCookies.at(j));
+    QList<QNetworkCookie> savedCookies = QNetworkCookie::parseCookies(settings->getCookies());
+    setAllCookies(savedCookies);
 }
 
 void YotaCookieJar::save()
 {
     QList<QNetworkCookie> cookies = allCookies();
-    QSettings settings;
-    settings.beginGroup(QLatin1String("cookies"));
-    settings.setValue("cookies", cookies[0].toRawForm());
+    settings->saveCookies(cookies[0].toRawForm());
 }
