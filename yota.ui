@@ -116,7 +116,7 @@
        <property name="font">
         <font>
          <family>PT Serif</family>
-         <pointsize>29</pointsize>
+         <pointsize>10</pointsize>
          <italic>false</italic>
         </font>
        </property>
@@ -133,7 +133,7 @@
        <property name="font">
         <font>
          <family>PT Serif</family>
-         <pointsize>29</pointsize>
+         <pointsize>10</pointsize>
          <italic>false</italic>
         </font>
        </property>

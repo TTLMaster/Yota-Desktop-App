@@ -33,6 +33,7 @@ private:
     Ui::Yota *ui;
     YotaWA *webapi;
     void update();
+    Settings *set;
     QLabel* status;
 };
 

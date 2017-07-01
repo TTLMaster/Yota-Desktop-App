@@ -66,7 +66,7 @@ void YotaWA::onResult(QNetworkReply *reply)
         {
             if(autoplan)
             {
-                autoplan=false;
+                autoplan=0;
                 if(!settings->getLastAutoPlan())
                     settings->setLastAutoPlan(1);
             }
