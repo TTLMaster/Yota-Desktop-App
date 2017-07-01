@@ -31,7 +31,7 @@ void Yota::update()
 
 void Yota::onResult(double balance, QString internet, QString next, int price, QString pricedesc)
 {
-    ui->balance->setText(QString::number(balance)+"₽");
+    ui->balance->setText("Баланс "+QString::number(balance)+"₽");
     ui->internetstatus->setText(internet.replace("\n", " "));
     ui->next->setText(next);
     ui->price->setText(QString::number(price)+pricedesc);
@@ -52,7 +52,7 @@ void Yota::onError(int code, QString message)
         myMessage="Неизвестная ошибка";
         break;
     }
-    ui->balance->setText("Н/Д");
+    ui->balance->setText("Баланс Н/Д");
     ui->internetstatus->setText("Нет данных");
     ui->next->setText("Нет данных");
     ui->price->setText("Нет данных");
