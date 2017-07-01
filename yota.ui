@@ -101,10 +101,10 @@
      <string>Настройки</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>-10</y>
       <width>211</width>
       <height>88</height>
