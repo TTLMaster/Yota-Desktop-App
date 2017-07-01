@@ -111,12 +111,15 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <property name="spacing">
+      <number>-1</number>
+     </property>
      <item row="0" column="0">
       <widget class="QLabel" name="b">
        <property name="font">
         <font>
          <family>PT Serif</family>
-         <pointsize>29</pointsize>
+         <pointsize>26</pointsize>
          <italic>false</italic>
         </font>
        </property>
@@ -124,7 +127,7 @@
         <string>Баланс</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
@@ -133,7 +136,7 @@
        <property name="font">
         <font>
          <family>PT Serif</family>
-         <pointsize>29</pointsize>
+         <pointsize>26</pointsize>
          <italic>false</italic>
         </font>
        </property>
