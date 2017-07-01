@@ -14,6 +14,9 @@ Yota::Yota(QWidget *parent) :
     setFixedSize(this->geometry().width(),this->geometry().height());
     status = new QLabel(this);
     statusBar()->addWidget(status);
+    QFont fixQtFontBug = ui->balance->font();
+    fixQtFontBug.setPointSize(fixQtFontBug.pointSize());
+    ui->balance->setFont(fixQtFontBug);
     this->update();
 }
 
