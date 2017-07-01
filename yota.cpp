@@ -15,7 +15,6 @@ Yota::Yota(QWidget *parent) :
     status = new QLabel(this);
     statusBar()->addWidget(status);
     this->update();
-    set = new Settings(wdg);
 }
 
 
@@ -74,7 +73,9 @@ void Yota::on_update_clicked()
 
 void Yota::on_toolButton_clicked()
 {
+    Settings *set;
     QWidget *wdg = new QWidget;
     wdg->setWindowTitle("Настройки");
+    set = new Settings(wdg);
     wdg->show();
 }

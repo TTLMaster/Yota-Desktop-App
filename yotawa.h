@@ -24,7 +24,7 @@ private:
     QNetworkAccessManager *networkManager;
     YotaCookieJar *cookieJar;
     SettingsController *settings;
-    int autoplan;
+    int autoplan=0;
     void loadPage(QString plan);
 
 private slots:
