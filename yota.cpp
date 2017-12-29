@@ -11,6 +11,9 @@ Yota::Yota(QWidget *parent) :
     connect (webapi, &YotaWA::getHomeFinished, this, &Yota::onResult);
     connect (webapi, &YotaWA::getHomeError, this, &Yota::onError);
     ui->setupUi(this);
+    setFixedSize(this->geometry().width(),this->geometry().height());
+    status = new QLabel(this);
+    statusBar()->addWidget(status);
     this->update();
 }
 
@@ -23,7 +26,7 @@ Yota::~Yota()
 void Yota::update()
 {
     webapi->getHome();
-    ui->updating->setText("Обновляю...");
+    status->setText("Обновляю...");
 }
 
 void Yota::onResult(double balance, QString internet, QString next, int price, QString pricedesc)
@@ -32,7 +35,7 @@ void Yota::onResult(double balance, QString internet, QString next, int price, Q
     ui->internetstatus->setText(internet.replace("\n", " "));
     ui->next->setText(next);
     ui->price->setText(QString::number(price)+pricedesc);
-    ui->updating->setText("Обновлено "+QDateTime::currentDateTime().toString("d MMM yyyy в hh:mm:ss"));
+    status->setText("Обновлено "+QDateTime::currentDateTime().toString("d MMM yyyy в hh:mm:ss"));
 }
 
 void Yota::onError(int code, QString message)
@@ -53,7 +56,7 @@ void Yota::onError(int code, QString message)
     ui->internetstatus->setText("Нет данных");
     ui->next->setText("Нет данных");
     ui->price->setText("Нет данных");
-    ui->updating->setText("Последняя попытка "+QDateTime::currentDateTime().toString("d MMM yyyy в hh:mm:ss"));
+    status->setText("Обновлено "+QDateTime::currentDateTime().toString("d MMM yyyy в hh:mm:ss"));
     errorBox.critical(0,"Не удалось получить данные от сервера!",myMessage+"\nОписание ошибки от сервера:\n"+message);
     errorBox.setFixedSize(500,200);
 }

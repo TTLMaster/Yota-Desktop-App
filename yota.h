@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "yotawa.h"
 #include "settings.h"
+#include <QtGui>
 
 namespace Ui {
 class Yota;
@@ -32,6 +33,7 @@ private:
     Ui::Yota *ui;
     YotaWA *webapi;
     void update();
+    QLabel* status;
 };
 
 #endif // YOTA_H
